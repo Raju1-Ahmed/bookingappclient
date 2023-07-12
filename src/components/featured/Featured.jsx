@@ -1,17 +1,27 @@
 import "./featured.css";
+// import useFetch from "./../../hooks/useFetch.js";
+import useFetch from "../../hooks/useFetch.js";
 
 const Featured = () => {
+
+  const { data, loading, error, } = useFetch(
+    "http://localhost:8800/api/hotel/countByCity?cities=dhaka,mymensingh,berlin"
+  );
+
   return (
     <div className="featured">
-      <div className="featuredItem">
+     {loading ? (
+      "Loading please wait"
+     ) : ( <>
+     <div className="featuredItem">
         <img
           src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
           alt=""
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Dublin</h1>
-          <h2>123 properties</h2>
+          <h1>berlin</h1>
+          <h2>{data[0]} Properties</h2>
         </div>
       </div>
       
@@ -22,8 +32,8 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Reno</h1>
-          <h2>533 properties</h2>
+          <h1>Mymensingh</h1>
+          <h2>{data[1]} Properties</h2>
         </div>
       </div>
       <div className="featuredItem">
@@ -33,10 +43,11 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Austin</h1>
-          <h2>532 properties</h2>
+          <h1>Dhaka</h1>
+          <h2>{data[2]} Properties</h2>
         </div>
       </div>
+      </>)}
     </div>
   );
 };
