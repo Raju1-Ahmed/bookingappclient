@@ -1,16 +1,18 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
-    name: "",
-    password: "",
+    name: undefined,
+    password: undefined,
   });
 
-  const { user, loading, error, login } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { loading, error, dispatch } = useContext(AuthContext);
+
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -18,12 +20,25 @@ const Login = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    login(credentials).then(() => {
-      navigate("/");
-    });
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
+      console.log(res);
+      if (res.data) {
+        dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+
+        navigate("/");
+      } else {
+        dispatch({
+          type: "LOGIN_FAILURE",
+          payload: { message: "You are not allowed!" },
+        });
+      }
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    }
   };
 
-  console.log("user...: ", user);
 
   return (
     <div className="login">
