@@ -11,10 +11,14 @@ console.log("from nav", user);
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
           <span className="logo">lamabooking</span>
         </Link>
-        {user ? user.name : (
+        {user ? 
+        <img src={user.img} alt="" className="profile"/>
+        : (
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            {/* <button className="navButton">Register</button> */}
+            <button className="navButton"><Link to="/register">Register</Link></button>
+            <button className="navButton"><Link to="/login">Login</Link></button>
+            
           </div>
         )}
       </div>

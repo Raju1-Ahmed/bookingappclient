@@ -12,7 +12,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   console.log("hotelID", hotelId);
 
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data, loading, error } = useFetch(`http://localhost:8800/api/hotel/singleRoom/${hotelId}`);
+  const { data, loading, error } = useFetch(`http://localhost:8800/api/hotels/singleRoom/${hotelId}`);
   console.log(data,"Data><Error",error);
   const { dates } = useContext(SearchContext);
 

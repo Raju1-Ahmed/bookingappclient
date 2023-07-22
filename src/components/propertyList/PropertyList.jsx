@@ -1,4 +1,5 @@
 import useFetch from "../../hooks/useFetch";
+import Loading from "../loading/Loading";
 import "./propertyList.css";
 
 const images = [
@@ -11,13 +12,13 @@ const images = [
 
 const PropertyList = () => {
   const { data, loading, error, reFetch } = useFetch(
-    "http://localhost:8800/api/hotel/countByType"
+    "http://localhost:8800/api/hotels/countByType"
   );
 
   return (
     <div className="pList">
       {loading ? (
-        "loading..."
+        <Loading/>
       ) : (
         <>
           {data.length > 0 ? (

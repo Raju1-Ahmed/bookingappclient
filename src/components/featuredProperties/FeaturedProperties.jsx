@@ -1,15 +1,17 @@
 import useFetch from "../../hooks/useFetch.js";
+import Loading from "../loading/Loading.js";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading, error, reFetch } = useFetch(
-    "http://localhost:8800/api/hotel?feature=true&limit=4&min=1&max=99"
+    "http://localhost:8800/api/hotels?feature=true&limit=4&min=1&max=999"
   );
+  // ?feature=true&limit=4&min=1&max=99
 
   return (
     <div className="fp">
       {loading ? (
-        "Loading"
+        <Loading/>
       ) : (
         <>
           {data.map((item) => (

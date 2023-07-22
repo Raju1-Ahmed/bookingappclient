@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://i.ibb.co/VqP8KZ9/Blue-Pink-Gradient-Fashion-Banner.jpg');
+  background-size: cover;
+}
+
+
+
+/* Styling for the container */
+.inputForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 700px;
+  margin: 0 auto; /* Align the container in the middle of the page */
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Rest of the CSS code remains the same */
+
+
+/* Styling for the left section */
+.left {
+  margin-right: 20px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Styling for the right section */
+.right {
+  flex-grow: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formInput {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Styling for the "Choose Image" icon */
+.label-img {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.label-img img {
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Adjust the width of the inputs within each formRow */
+.formRow .formInput {
+  width: calc(33.33% - 10px);
+}
+
+/* Styling for the button */
+button {
+  margin-top: 20px;
+}

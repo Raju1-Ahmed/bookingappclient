@@ -21,7 +21,7 @@ const Hotel = () => {
   const { user } = useContext(AuthContext);
   console.log("user from hotel:", user);
   const navigate = useNavigate();
-  const { data, loading } = useFetch(`http://localhost:8800/api/hotel/find/${id}`);
+  const { data, loading } = useFetch(`http://localhost:8800/api/hotels/find/${id}`);
   // console.log("location ID:",data, "error", error);
 
   const { dates, options } = useContext(SearchContext);
