@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 700px;
+  width: 767px;
   margin: 0 auto; /* Align the container in the middle of the page */
   padding: 20px;
   border: 1px solid #ccc;
@@ -28,7 +28,8 @@
 
 /* Styling for the left section */
 .left {
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  width: 100%;
 }
 
 .img {

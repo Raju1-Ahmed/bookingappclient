@@ -12,7 +12,7 @@ console.log("from nav", user);
           <span className="logo">lamabooking</span>
         </Link>
         {user ? 
-        <img src={user.img} alt="" className="profile"/>
+        <img src={user.img} alt="" className="rounded-full w-12 "/>
         : (
           <div className="navItems">
             {/* <button className="navButton">Register</button> */}
