@@ -4,7 +4,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading, error, reFetch } = useFetch(
-    "http://localhost:8800/api/hotels?feature=true&limit=4&min=1&max=999"
+    "https://villaverse.onrender.com/api/hotels?feature=true&limit=4&min=1&max=999"
   );
   // ?feature=true&limit=4&min=1&max=99
 

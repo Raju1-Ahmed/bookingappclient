@@ -48,7 +48,7 @@ const Register = ({ inputs, title }) => {
         img: url,
       };
 
-      await axios.post("http://localhost:8800/api/auth/register", newUser);
+      await axios.post("https://villaverse.onrender.com/api/auth/register", newUser);
 
       setInfo({});
       setFile("");
@@ -56,6 +56,13 @@ const Register = ({ inputs, title }) => {
       // dispatch({ type: 'YOUR_ACTION_TYPE', payload: newUser });
       
       await dispatch({ type: 'YOUR_ACTION_TYPE', payload: newUser });
+
+      
+      console.log('User registered successfully.');
+
+      // Save user data to local storage
+      localStorage.setItem('userDetails', JSON.stringify(newUser));
+
       navigate('/'); // Navigate to the home route after successful insertion
     } catch (err) {
       if (err.response) {
@@ -90,8 +97,7 @@ const Register = ({ inputs, title }) => {
                         alt=""
                     />
                 </div>
-                <div className="right">
-                 
+                <div className="right">                 
                     <form>   
                         <div className="formInput">
                         <label htmlFor="file">

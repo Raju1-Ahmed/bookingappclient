@@ -5,7 +5,7 @@ import useFetch from "../../hooks/useFetch.js";
 const Featured = () => {
 
   const { data, loading, error, } = useFetch(
-    "http://localhost:8800/api/hotels/countByCity?cities=dhaka,mymensingh,berlin"
+    "https://villaverse.onrender.com/api/hotels/countByCity?cities=dhaka,mymensingh,berlin"
   );
 
   return (

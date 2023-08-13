@@ -12,7 +12,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   console.log("hotelID", hotelId);
 
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data, loading, error } = useFetch(`http://localhost:8800/api/hotels/singleRoom/${hotelId}`);
+  const { data, loading, error } = useFetch(`https://villaverse.onrender.com/api/hotels/singleRoom/${hotelId}`);
   console.log(data,"Data><Error",error);
   const { dates } = useContext(SearchContext);
 
@@ -58,7 +58,7 @@ const Reserve = ({ setOpen, hotelId }) => {
     try {
       await Promise.all(
         selectedRooms.map((roomId) => {
-          const res = axios.put(`http://localhost:8800/api/rooms/availability/${roomId}`, {
+          const res = axios.put(`https://villaverse.onrender.com/api/rooms/availability/${roomId}`, {
             dates: alldates,
           });
           return res.data;

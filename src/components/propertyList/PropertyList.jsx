@@ -12,7 +12,7 @@ const images = [
 
 const PropertyList = () => {
   const { data, loading, error, reFetch } = useFetch(
-    "http://localhost:8800/api/hotels/countByType"
+    "https://villaverse.onrender.com/api/hotels/countByType"
   );
 
   return (

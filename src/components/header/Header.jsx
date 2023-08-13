@@ -15,7 +15,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
-import { AuthContext } from "../../context/AuthContext";
+// import { AuthContext } from "../../context/AuthContext";
 
 
 const Header = ({ type }) => {
@@ -36,7 +36,8 @@ const Header = ({ type }) => {
   });
 
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const user = JSON.parse(localStorage.getItem('userDetails'));
+
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -89,16 +90,47 @@ const Header = ({ type }) => {
             </h1>
             <p className="headerDesc">
               Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+              more with a free  account
             </p>
+            {user && (
+              <>
+                <div className="flex items-center justify-start">
+                  <div className="max-w-md  overflow-hidden">
+                    <div className="flex items-center">
+                      <img
+                        src={user.img}
+                        alt={user.name}
+                        className="block sm:flex-shrink-0 h-24 w-24 rounded-full"
+                      />
+                      <div className="ml-4 text-center sm:text-left">
+                        <h1 className="text-xl font-semibold text-gray-400">{user.name}</h1>
+                        <p className="text-sm font-medium text-gray-400">{user.email}</p>
+                        <div className="">
+                          <p className="text-sm text-gray-400">
+                            <span className="font-medium">Country:</span> {user.country}
+                          </p>
+                          <p className="text-sm text-gray-400">
+                            <span className="font-medium">Phone:</span> {user.phone}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
             {!user && <button className="headerBtn">Sign in / Register</button>}
+
+
+
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input
                   type="text"
                   placeholder="Where are you going?"
-                  className="headerSearchInput"
+                  className="headerSearchInput text-black"
                   onChange={(e) => setDestination(e.target.value)}
                 />
               </div>

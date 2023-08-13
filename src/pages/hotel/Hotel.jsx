@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch.js";
 import { SearchContext } from "../../context/SearchContext";
-import { AuthContext } from "../../context/AuthContext";
+// import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve.jsx";
 
 const Hotel = () => {
@@ -18,10 +18,12 @@ const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
+  const user = JSON.parse(localStorage.getItem('userDetails'));
+
   console.log("user from hotel:", user);
   const navigate = useNavigate();
-  const { data, loading } = useFetch(`http://localhost:8800/api/hotels/find/${id}`);
+  const { data, loading } = useFetch(`https://villaverse.onrender.com/api/hotels/find/${id}`);
   // console.log("location ID:",data, "error", error);
 
   const { dates, options } = useContext(SearchContext);
